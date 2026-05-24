@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.ciprebi404 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 300px;
+    color: rgb(61, 61, 61);
+}
+
+.naweri404 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: rgb(61, 61, 61);
+    font-weight: 650;
+}

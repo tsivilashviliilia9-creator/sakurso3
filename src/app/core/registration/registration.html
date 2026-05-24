@@ -1,0 +1,151 @@
+<main class="registrationMain">
+  <section class="container flex-column">
+    <h2 class="registrationSatauri">Sign Up</h2>
+
+    <form class="flex-column" (ngSubmit)="onSubmit()" #signUpForm="ngForm" novalidate>
+
+      <input
+        type="text"
+        name="firstName"
+        placeholder="Enter first name"
+        autocomplete="given-name"
+        [(ngModel)]="signUpData.firstName"
+        #firstNameInput="ngModel"
+        required
+      />
+      @if (firstNameInput.touched && firstNameInput.hasError('required')) {
+        <span class="error">First name is required</span>
+      }
+
+      <input
+        type="text"
+        name="lastName"
+        placeholder="Enter last name"
+        autocomplete="family-name"
+        [(ngModel)]="signUpData.lastName"
+        #lastNameInput="ngModel"
+        required
+      />
+      @if (lastNameInput.touched && lastNameInput.hasError('required')) {
+        <span class="error">Last name is required</span>
+      }
+
+      <input
+        type="number"
+        name="age"
+        placeholder="Enter age"
+        autocomplete="off"
+        [(ngModel)]="signUpData.age"
+        #ageInput="ngModel"
+        required
+        min="1"
+      />
+      @if (ageInput.touched && ageInput.hasError('required')) {
+        <span class="error">Age is required</span>
+      } @else if (ageInput.touched && ageInput.hasError('min')) {
+        <span class="error">Age must be greater than 0</span>
+      }
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter email"
+        autocomplete="email"
+        [(ngModel)]="signUpData.email"
+        #emailInput="ngModel"
+        required
+        email
+      />
+      @if (emailInput.touched && emailInput.hasError('required')) {
+        <span class="error">Email is required</span>
+      } @else if (emailInput.touched && emailInput.hasError('email')) {
+        <span class="error">Enter a valid email</span>
+      }
+
+      <input
+        type="password"
+        name="password"
+        placeholder="Enter password"
+        autocomplete="new-password"
+        [(ngModel)]="signUpData.password"
+        #passwordInput="ngModel"
+        required
+        minlength="8"
+      />
+      @if (passwordInput.touched && passwordInput.hasError('required')) {
+        <span class="error">Password is required</span>
+      } @else if (passwordInput.touched && passwordInput.hasError('minlength')) {
+        <span class="error">Password must be at least 8 characters</span>
+      }
+
+      <input
+        type="text"
+        name="address"
+        placeholder="Enter address"
+        autocomplete="street-address"
+        [(ngModel)]="signUpData.address"
+        #addressInput="ngModel"
+        required
+      />
+      @if (addressInput.touched && addressInput.hasError('required')) {
+        <span class="error">Address is required</span>
+      }
+
+      <input
+        type="tel"
+        name="phone"
+        placeholder="Enter phone"
+        autocomplete="tel"
+        [(ngModel)]="signUpData.phone"
+        #phoneInput="ngModel"
+        required
+      />
+      @if (phoneInput.touched && phoneInput.hasError('required')) {
+        <span class="error">Phone is required</span>
+      }
+
+      <input
+        type="text"
+        name="zipcode"
+        placeholder="Enter zip code"
+        autocomplete="postal-code"
+        [(ngModel)]="signUpData.zipcode"
+        #zipcodeInput="ngModel"
+        required
+      />
+      @if (zipcodeInput.touched && zipcodeInput.hasError('required')) {
+        <span class="error">Zip code is required</span>
+      }
+
+      <input
+        type="url"
+        name="avatar"
+        placeholder="Enter avatar URL"
+        autocomplete="off"
+        [(ngModel)]="signUpData.avatar"
+        #avatarInput="ngModel"
+        required
+      />
+      @if (avatarInput.touched && avatarInput.hasError('required')) {
+        <span class="error">Avatar URL is required</span>
+      }
+
+      <select
+        name="gender"
+        [(ngModel)]="signUpData.gender"
+        #genderInput="ngModel"
+        required
+      >
+        <option value="MALE">Male</option>
+        <option value="FEMALE">Female</option>
+      </select>
+      @if (genderInput.touched && genderInput.hasError('required')) {
+        <span class="error">Gender is required</span>
+      }
+
+      <button type="reset" id="regReset">Reset</button>
+      <button type="submit" id="regSubmit" [disabled]="signUpForm.invalid">Register</button>
+
+    </form>
+  </section>
+</main>

@@ -1,0 +1,188 @@
+.logInMain {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.4),
+    rgba(0,0,0,0.4)),
+    url('https://images.unsplash.com/photo-1566073771259-6a8506099945');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px;
+}
+
+.logIn {
+  width: 100%;
+  max-width: 400px;
+
+  background: rgba(255,255,255,0.95);
+
+  backdrop-filter: blur(5px);
+
+  padding: 40px;
+
+  border-radius: 25px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+  text-align: center;
+}
+
+.naweriLogIn {
+  font-size: 38px;
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+.logInText {
+  color: #6b7280;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.logInForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.logInInput {
+  width: 100%;
+
+  padding: 14px;
+
+  margin-top: 15px;
+
+  border-radius: 12px;
+
+  border: 1px solid #d1d5db;
+
+  font-size: 16px;
+
+  transition: 0.3s;
+}
+
+.logInInput:focus {
+  outline: none;
+
+  border-color: #ff6d00;
+
+  box-shadow: 0 0 8px rgba(255,109,0,0.4);
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  text-align: left;
+  margin-top: 5px;
+}
+
+.logInbtn {
+  width: 100%;
+
+  padding: 14px;
+
+  margin-top: 25px;
+
+  background: #ff6d00;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 12px;
+
+  font-size: 17px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.logInbtn:hover {
+  background: #e65c00;
+
+  transform: translateY(-2px);
+}
+
+.logInbtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.registrationbtn {
+  width: 100%;
+
+  padding: 14px;
+
+  margin-top: 15px;
+
+  background: #2563eb;
+
+  border: none;
+
+  border-radius: 12px;
+
+  transition: 0.3s;
+}
+
+.registrationbtn:hover {
+  background: #1d4ed8;
+}
+
+.registrationbtn a {
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 16px;
+
+  font-weight: bold;
+}
+
+
+/* RESPONSIVE */
+
+
+@media (max-width: 500px) {
+
+  .logInMain {
+    padding: 20px 15px;
+  }
+
+  .logIn {
+    width: 100%;
+    padding: 25px 18px;
+    border-radius: 18px;
+  }
+
+  .naweriLogIn {
+    font-size: 28px;
+  }
+
+  .logInText {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .logInInput {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .logInbtn,
+  .registrationbtn {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .error {
+    font-size: 12px;
+  }
+
+}

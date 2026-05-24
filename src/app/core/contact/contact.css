@@ -1,0 +1,261 @@
+/* HOME */
+
+.home {
+  height: 90vh;
+  background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.home::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.home-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+}
+
+.home h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.home p {
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+
+.book-btn {
+  padding: 15px 35px;
+  border: none;
+  background: #facc15;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.book-btn:hover {
+  transform: scale(1.05);
+}
+
+
+/* ABOUT */
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding: 80px 10%;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-text h2 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.about img {
+  width: 450px;
+  border-radius: 20px;
+}
+
+
+/* CONTACT */
+
+.contact {
+  background: #f3f4f6;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 42px;
+  margin-bottom: 40px;
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact input,
+.contact textarea {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.contact textarea {
+  height: 150px;
+  resize: none;
+}
+
+.contact button {
+  padding: 15px;
+  border: none;
+  background: #111827;
+  color: white;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact button:hover {
+  background: black;
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 992px) {
+
+  /* HOME */
+
+  .home h1 {
+    font-size: 42px;
+  }
+
+  .home p {
+    font-size: 18px;
+  }
+
+  .book-btn {
+    padding: 13px 28px;
+    font-size: 18px;
+  }
+
+
+  /* ABOUT */
+
+  .about {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .about img {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .about-text h2 {
+    font-size: 34px;
+  }
+
+  .about-text p {
+    font-size: 17px;
+  }
+
+
+  /* CONTACT */
+
+  .contact h2 {
+    font-size: 34px;
+  }
+
+  .contact-container {
+    width: 100%;
+  }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  /* HOME */
+
+  .home {
+    height: 80vh;
+    padding: 20px;
+  }
+
+  .home h1 {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+
+  .home p {
+    font-size: 16px;
+  }
+
+  .book-btn {
+    width: 100%;
+    max-width: 250px;
+    font-size: 17px;
+  }
+
+
+  /* ABOUT */
+
+  .about {
+    gap: 30px;
+  }
+
+  .about-text h2 {
+    font-size: 28px;
+  }
+
+  .about-text p {
+    font-size: 16px;
+  }
+
+  .about img {
+    border-radius: 15px;
+  }
+
+
+  /* CONTACT */
+
+  .contact {
+    padding: 60px 15px;
+  }
+
+  .contact h2 {
+    font-size: 28px;
+  }
+
+  .contact input,
+  .contact textarea {
+    font-size: 15px;
+    padding: 13px;
+  }
+
+  .contact button {
+    font-size: 16px;
+    padding: 13px;
+  }
+
+}

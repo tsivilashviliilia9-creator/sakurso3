@@ -1,0 +1,93 @@
+<section class="cart">
+  <div class="cart-container">
+    <div class="cart-header">
+      <h1>ჩემი დაჯავშნები</h1>
+      <p class="subtitle">შენი აქტიური და გასული ჯავშნები</p>
+    </div>
+
+    @if (errorMessage()) {
+      <p class="error-msg">{{ errorMessage() }}</p>
+    }
+
+    @if (isLoading()) {
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>იტვირთება...</p>
+      </div>
+    }
+
+    @if (!isLoading() && bookings().length === 0 && !errorMessage()) {
+      <div class="empty-state">
+        <span class="empty-icon">🛎️</span>
+        <h2>ჯავშანი არ გაქვს</h2>
+        <p>ჯერ არ გიჯავშნია სასტუმრო. დაიწყე ძებნა!</p>
+        <a class="book-now-btn" routerLink="/booking">სასტუმროს ძებნა</a>
+      </div>
+    }
+
+    @if (!isLoading() && bookings().length > 0) {
+      <div class="bookings-list">
+        @for (booking of bookings(); track booking.id) {
+          <div
+            class="booking-card"
+            [class.cancelling]="cancellingId() === booking.id"
+            [class.cancelled]="cancelSuccessId() === booking.id"
+          >
+            <div class="booking-icon">🏨</div>
+
+            <div class="booking-details">
+              @if (booking.customerName) {
+                <h3 class="booking-title">{{ booking.customerName }}</h3>
+              } @else {
+                <h3 class="booking-title">ოთახი #{{ booking.roomID }}</h3>
+              }
+
+              <div class="booking-meta">
+                <span class="meta-item">
+                  📅 {{ formatDate(booking.checkInDate) }} → {{ formatDate(booking.checkOutDate) }}
+                </span>
+                <span class="meta-item">
+                  🌙 {{ getNights(booking.checkInDate, booking.checkOutDate) }} ღამე
+                </span>
+                @if (booking.customerPhone) {
+                  <span class="meta-item">📞 {{ booking.customerPhone }}</span>
+                }
+              </div>
+
+              <div class="booking-price">
+                სულ: <strong>{{ booking.totalPrice }}₾</strong>
+              </div>
+
+              <div
+                class="booking-status"
+                [class.confirmed]="booking.isConfirmed"
+                [class.pending]="!booking.isConfirmed"
+              >
+                {{ booking.isConfirmed ? '✓ დადასტურებული' : '⏳ მოლოდინში' }}
+              </div>
+            </div>
+
+            <div class="booking-actions">
+              @if (cancelSuccessId() === booking.id) {
+                <span class="cancel-success">✓ გაუქმდა</span>
+              } @else {
+                <button
+                  class="cancel-btn"
+                  [disabled]="cancellingId() === booking.id"
+                  (click)="cancelBooking(booking.id)"
+                >
+                  {{ cancellingId() === booking.id ? 'მიმდინარეობს...' : 'გაუქმება' }}
+                </button>
+              }
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="cart-footer">
+        <p class="total-bookings">სულ: {{ bookings().length }} ჯავშანი</p>
+        <a class="book-more-btn" routerLink="/booking">კიდევ დაჯავშნა</a>
+      </div>
+    }
+  </div>
+</section>

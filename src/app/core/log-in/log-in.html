@@ -1,0 +1,68 @@
+<main class="logInMain">
+
+  <div class="logIn">
+
+    <h1 class="naweriLogIn">Welcome Back</h1>
+
+    <p class="logInText">
+      Log in to continue booking hotels
+    </p>
+
+    <form
+      (ngSubmit)="onSubmit()"
+      #logInForm="ngForm"
+      class="logInForm"
+    >
+
+      <input
+        type="email"
+        placeholder="Enter your email"
+        class="logInInput"
+        [(ngModel)]="logInData.email"
+        #emailInput="ngModel"
+        name="email"
+        email
+        required
+      />
+
+      @if(emailInput.invalid && emailInput.touched) {
+        <span class="error">Enter valid email</span>
+      }
+
+
+      <input
+        type="password"
+        placeholder="Enter password"
+        class="logInInput"
+        [(ngModel)]="logInData.password"
+        #passwordInput="ngModel"
+        name="password"
+        required
+        minlength="6"
+      />
+
+      @if(passwordInput.hasError('required') && passwordInput.touched) {
+        <span class="error">Enter password</span>
+      }
+
+      @if(passwordInput.hasError('minlength') && passwordInput.touched) {
+        <span class="error">Password is too short</span>
+      }
+
+
+      <button
+        type="submit" class="logInbtn" [disabled]="logInForm.invalid">
+        Log In
+      </button>
+
+      <button class="registrationbtn" type="button">
+        <a routerLink="/register">
+          Create Account
+        </a>
+      </button>
+
+    </form>
+
+  </div>
+
+</main>
